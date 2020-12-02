@@ -33,13 +33,15 @@ class Recipes {
   async checkApiStatus() {
     try {
       const responseGiphyApi = await getGiphys("test");
-      const responseRecipesApi = await getRecipes("test");
+      const responseRecipesApi = await getRecipes("");
       if ((responseGiphyApi.status >= 400) ||
                 (responseRecipesApi.status >= 400)) {
         throw createError(HTTP_STATUS_CODE.SERVICE_UNAVAILABLE,
           ERROR_MESSAGES.SERVICE_UNAVAILABLE);
       }
+      return true;
     } catch (error) {
+      console.log(error.stack);
       throw createError(error.statusCode, error.message);
     }
   }
@@ -61,14 +63,15 @@ const getRecipes = async (ingredients) => {
  * @param {Array} recipesList
  */
 const formatRecipesResponse = async (ingredientsList, recipesList) => {
-  const ingredientsSplitted = ingredientsList.split(",").map((s) => s.trim());
+  const delimiter = ",";
+  const ingredientsSplitted = await splitAndTrimArrays(ingredientsList, delimiter);
   const recipesResponse = [];
   for (const {title, href, ingredients} of recipesList) {
     const giphy = await getGiphys(title);
-    const ingredientsFormatted = ingredients.split(",").map((s) => s.trim()).
-      sort();
+    const ingredientsFormatted = await splitAndTrimArrays(ingredients, delimiter);
+    const ingredientsSorted = await sortArrays(ingredientsFormatted);
     recipesResponse.push({
-      title: title, ingredients: ingredientsFormatted,
+      title: title, ingredients: ingredientsSorted,
       link: href, gif: giphy.response,
     });
   }
@@ -89,6 +92,23 @@ const getGiphys = async (recipeTitle) => {
     `${process.env.GIPHY_API_URL}gifs/search?api_key=${process.env.GIPHY_API_KEY}&q=${recipeTitle}&limit=1`, {});
   return {response: httpRequestResponse.data.data[0].images.original.url,
     status: httpRequestResponse.status};
+};
+
+/**
+ * Function responsible to trim and split strings by delimiter.
+ * @param {String} string
+ * @param {String} delimiter
+ */
+const splitAndTrimArrays = async (string, delimiter) => {
+  return string.split(delimiter).map((s) => s.trim());
+};
+
+/**
+ * Function responsible to sort arrays
+ * @param {Array} array
+ */
+const sortArrays = async (array) => {
+  return array.sort();
 };
 
 module.exports = Recipes;

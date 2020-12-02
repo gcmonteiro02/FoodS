@@ -6,11 +6,11 @@
   "scripts": {
     "dev": "nodemon server.js",
     "prod": "node server.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "lintfix": "./node_modules/.bin/eslint . --fix",
     "lint": "./node_modules/.bin/eslint ."
   },
-  "author": "",
+  "author": "Gabriel Monteiro",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.21.0",
@@ -24,6 +24,8 @@
   "devDependencies": {
     "eslint": "^7.14.0",
     "eslint-config-google": "^0.14.0",
-    "nodemon": "^2.0.6"
+    "jest": "^26.6.3",
+    "nodemon": "^2.0.6",
+    "supertest": "^6.0.1"
   }
 }

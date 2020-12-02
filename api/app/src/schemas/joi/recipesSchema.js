@@ -7,7 +7,7 @@ const recipesSchema = {
       try {
         const valueSpllited = value.split(",");
         if (valueSpllited.length > 3) {
-          return helper.message("Desculpe, é permitido no máximo 3 ingredientes por pesquisa.");
+          return helper.message("Sorry, a maximum of 3 ingredients per search is allowed.");
         }
         return;
       } catch (error) {
