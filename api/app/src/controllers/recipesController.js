@@ -2,6 +2,8 @@ const createError = require("http-errors");
 const HTTP_STATUS_CODE = require("../constants/httpStatusCode");
 const ERROR_MESSAGES = require("../constants/errorMessages");
 const HttpRequest = require("../services/httpRequest");
+require("dotenv").config();
+
 /**
  * Class responsible for recipes methods
  */
@@ -49,8 +51,8 @@ class Recipes {
  */
 const getRecipes = async (ingredients) => {
   const httpRequest = new HttpRequest();
-  const response = await httpRequest.get(`${process.env.RECIPES_API_URL}?i=${ingredients}`, {});
-  return {response: response.data.results, status: response.status};
+  const httpRequestResponse = await httpRequest.get(`${process.env.RECIPES_API_URL}?i=${ingredients}`, {});
+  return {response: httpRequestResponse.data.results, status: httpRequestResponse.status};
 };
 
 /**
@@ -84,10 +86,9 @@ const formatRecipesResponse = async (ingredientsList, recipesList) => {
 const getGiphys = async (recipeTitle) => {
   const httpRequest = new HttpRequest();
   const httpRequestResponse = await httpRequest.get(
-    `${process.env.GIPHY_API_URL}/gifs/search?api_key=
-    ${process.env.GIPHY_API_KEY}&q=${recipeTitle}&limit=1`, {});
+    `${process.env.GIPHY_API_URL}gifs/search?api_key=${process.env.GIPHY_API_KEY}&q=${recipeTitle}&limit=1`, {});
   return {response: httpRequestResponse.data.data[0].images.original.url,
-    status: response.status};
+    status: httpRequestResponse.status};
 };
 
 module.exports = Recipes;
