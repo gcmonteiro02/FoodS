@@ -1,8 +1,10 @@
 FROM node:11-alpine
 
-RUN mkdir -p /usr/src/app
+RUN mkdir -p /usr/app/src/app
 
 WORKDIR ./
+
+COPY package*.json ./
 
 COPY . .
 

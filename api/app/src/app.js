@@ -1,9 +1,9 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-// const { handlerError } = require("./utils/errorHandler");
+const { handlerError } = require("./utils/errorHandler");
 const app = express();
 
-// app.use(handlerError);
+app.use(handlerError);
 app.use(function (req, res, next) {
   res.header("Content-Type",'application/json');
   next();
@@ -15,5 +15,9 @@ app.use(
     extended: true,
   })
 );
+app.get('/', (req, res) => {
+  console.log('sdas')
+  res.send('Hello sadasd');
+});
 
 module.exports = app;
