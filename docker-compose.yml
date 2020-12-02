@@ -2,9 +2,14 @@ version: '3'
 
 services:
   api:
-    image: short-url-express-app
+    image: dmtc-image
     build: ./api/
     ports:
       - "3000:3000"
     volumes:
-        - ./api/:/usr/src/app  
+      - ./api/:/usr/app/src/
+    environment:
+      - PORT=3000 
+      - RECIPES_API_URL=http://www.recipepuppy.com/api/
+      - GIPHY_API_URL=http://api.giphy.com/v1/
+      - GIPHY_API_KEY=hP51EzERZRxA0tAT9l0ENM42tnjMYpBH

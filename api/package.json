@@ -4,8 +4,28 @@
   "description": "Delivery M Tech Challenge",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon server.js",
+    "prod": "node server.js",
+    "test": "jest",
+    "lintfix": "./node_modules/.bin/eslint . --fix",
+    "lint": "./node_modules/.bin/eslint ."
   },
-  "author": "",
-  "license": "ISC"
+  "author": "Gabriel Monteiro",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.0",
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "http": "0.0.1-security",
+    "is-empty": "^1.2.0",
+    "joi": "^17.3.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.14.0",
+    "eslint-config-google": "^0.14.0",
+    "jest": "^26.6.3",
+    "nodemon": "^2.0.6",
+    "supertest": "^6.0.1"
+  }
 }
