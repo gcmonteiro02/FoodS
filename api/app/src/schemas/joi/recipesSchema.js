@@ -3,11 +3,11 @@ const createError = require("http-errors");
 
 const recipesSchema = {
   getRecipe: Joi.object().keys({
-    i: Joi.string().required().custom((value, helper) => {
+    i: Joi.string().required().allow("").custom((value, helper) => {
       try {
         const valueSpllited = value.split(",");
         if (valueSpllited.length > 3) {
-          return helper.message("Is not allowed more than three ingredients");
+          return helper.message("Desculpe, é permitido no máximo 3 ingredientes por pesquisa.");
         }
         return;
       } catch (error) {

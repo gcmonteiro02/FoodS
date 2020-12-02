@@ -10,6 +10,7 @@ const responseUtil = require("../utils/responseUtil");
 module.exports.getRecipe = async (req, res, next) => {
   try {
     const recipes = new Recipes();
+    await recipes.checkApiStatus();
     const ingredients = req.query.i;
     const response = await recipes.getRecipe(ingredients);
     res.status(response.statusCode).send(response.body);
