@@ -6,14 +6,18 @@
   "scripts": {
     "dev": "nodemon server.js",
     "prod": "node server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lintfix": "./node_modules/.bin/eslint . --fix",
+    "lint": "./node_modules/.bin/eslint ."
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.21.0",
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
-    "http": "0.0.1-security"
+    "http": "0.0.1-security",
+    "joi": "^17.3.0"
   },
   "devDependencies": {
     "eslint": "^7.14.0",

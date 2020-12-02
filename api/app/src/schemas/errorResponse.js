@@ -1,7 +1,14 @@
+/**
+* Class responsible for error responses.
+*/
 class ErrorResponse {
-    constructor(message) {
-        this.message = message
-    }
+  /**
+   * Create a error message.
+   * @param {String} message
+  */
+  constructor(message) {
+    this.message = message;
+  }
 }
 
 module.exports = ErrorResponse;
