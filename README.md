@@ -1,6 +1,6 @@
-# DMTC 
+# FoodS 
 
-Com o DMTC é possível pesquisar receitas de comida usando até três ingredientes na pesquisa. É possível receber Gifs, titulos e links, bem como os ingredientes das receitas no resultado dessas pesquisas.
+Com o FoodS é possível pesquisar receitas de comida usando até três ingredientes na pesquisa. É possível receber Gifs, titulos e links, bem como os ingredientes das receitas no resultado dessas pesquisas.
 
 ## Instalação
 
@@ -47,33 +47,4 @@ Foi utilizado o GitHub para controle de PR's e o versionamento do projeto. Prati
 
 ## Postman Collection com todos os end points.
 
-[DMTC Project Collection](https://www.getpostman.com/collections/12ae9180ab33f4b206c2)
-
-
-# Critérios de Avaliação
-
-### Entrega
-- O projeto está completo para ser executado? Sim. 
-- O projeto atende ao que se propõe fazer? Sim. 
-- Todos requisitos foram atendidos? Sim.
-
-### Boas Práticas
-- O código está de acordo com o guia de estilo do NodeJS / Go? Sim, NodeJS.
-- O código está bem estruturado? Sim. 
-- O código está fluente na linguagem? Sim
-- O código faz o uso correto de Design Patterns? sim, MVC.
-
-### Documentação
-- O código foi entregue com um arquivo de README claro de como se guiar? Sim.
-- A documentação foi suficiente para executar o projeto? Sim.
-- Os commits são pequenos e consistentes? Sim.
-- As mensagens de commit são claras? As mensagens poderiam ser mais claras. 
-
-### Código Limpo
-- O código possibilita expansão para novas funcionalidades? Sim. 
-- O código é Don't Repeat Yourself? Sim. 
-- O código é fácil de compreender? Sim. 
-
-### Controle de Qualidade
-- O código possui configuração de lint? Sim. As configurações podem ser encontradas no path api/.eslintrc.json
-- O código possui testes unitários? Sim. 
+[FoodS Project Collection](https://www.getpostman.com/collections/12ae9180ab33f4b206c2)
